@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environment
+venv/
+env/
+.venv/
+.env/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Django
+*.log
+local_settings.py
+# PostgreSQL credentials va dump fayllar
+*.dump
+*.sql.gz
+media/
+staticfiles/
+static_root/
+
+# Migrations (optional — remove these lines if you want to commit migrations)
+# */migrations/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Multi-agent coordination (live state, not for version control)
+active_tasks.md
+active_files.md
