@@ -1,6 +1,7 @@
 from rest_framework import viewsets, permissions, filters
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter
+from rest_framework.mixins import ListModelMixin, CreateModelMixin, DestroyModelMixin
 
 from .models import *
 from .serializers import *
@@ -21,11 +22,14 @@ class ProductViewSet(viewsets.ModelViewSet):
     search_fields = ('name', 'description')
     ordering_fields = ('price', 'created_at')
 
-class CartViewSet(viewsets.GenericViewSet):
+class CartViewSet(ListModelMixin, CreateModelMixin, DestroyModelMixin, viewsets.GenericViewSet):
     serializer_class = CartSerializer
     permission_classes = [permissions.IsAuthenticated]
     def get_queryset(self):
         return Cart.objects.filter(user=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 class OrderViewSet(viewsets.ModelViewSet):
     serializer_class = OrderSerializer
