@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'rest_framework.authtoken',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -20,6 +21,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'shop',
+    'accounts',
 ]
 
 MIDDLEWARE = [
